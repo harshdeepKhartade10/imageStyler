@@ -15,11 +15,11 @@ function App() {
     date: '',
     time: '',
   });
-  const fileInputRef = useRef(null);
+  const fileInputRef =useRef(null);
 
   const handleImageUpload = (e)=> {
     const file =e.target.files?.[0];
-    if (file){
+    if(file){
       setProcessing(true);
       const reader = new FileReader();
       reader.onloadend =()=>{
@@ -40,7 +40,7 @@ function App() {
   const handleDrop =(e) =>{
     e.preventDefault();
     const file = e.dataTransfer.files[0];
-    if (file && file.type.startsWith('image/')) {
+    if(file && file.type.startsWith('image/')) {
       setProcessing(true);
       const reader = new FileReader();
       reader.onloadend = () =>{
@@ -53,11 +53,11 @@ function App() {
     }
   };
 
-  const rotateImage = () =>{
+  const rotateImage= () =>{
     setAngle((prev)=>(prev + 90) %360);
   };
 
-  const handleBookingSubmit =(e) => {
+  const handleBookingSubmit =(e) =>{
     e.preventDefault();
     alert('Consultation booked successfully! We will contact you shortly.');
     setShowBooking(false);
@@ -102,7 +102,7 @@ function App() {
               <h2 className="text-2xl font-semibold text-gray-900 mb-6">Preview Your New Smile</h2>
               
               <div className="space-y-6">
-                {!selectedImage ? (
+                {!selectedImage ?(
                   <div 
                     className="border-2 border-dashed border-gray-300 rounded-lg p-12 text-center cursor-pointer hover:border-indigo-500 transition-colors"
                     onClick={() =>fileInputRef.current?.click()}
